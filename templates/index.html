@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Codify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="wow">
+      <img class="image1" src="https://cdn.iconscout.com/icon/free/png-256/free-leetcode-3628885-3030025.png" alt="leetcode" border="0">
+    </div>
+    <div class="container">
+      <div class="form">
+        <form method="POST">
+          {{ form.hidden_tag() }}
+          <div class="search-box">
+            {{ form.search.label }} {{ form.search() }} {{ form.submit() }}
+          </div>
+        </form>
+      </div>
+      <div class="results">
+        {% for result in results %}
+        <div class="link-box">
+          <a href="{{ result['Question Link'] }}">{{ result['Question Link'] }}</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
